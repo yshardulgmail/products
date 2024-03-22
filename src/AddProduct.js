@@ -25,13 +25,24 @@ const products = [
 
 const AddProduct = () => {
 	const [show, setShow] = useState(false);
+	const [action, setAction] = useState("");
 	const tableData = products.map(item => {
 		return <tr>
 			<td>{item.name}</td>
 			<td><img src={item.url} alt="Avatar" style={{ width: "25px", height: "25px" }} /></td>
-			<td><button onClick={() => setShow(true)} >Edit</button></td>
+			<td><button onClick={() => {setShow(true); setAction("Add");}} >Add</button><button onClick={() => {setShow(true); setAction("Edit");}} >Add</button></td>
 		</tr>
 	});
+	const productData = <table>
+		<tr>
+			<td>Product Name</td>
+			<td><input type="text"></input></td>
+		</tr>
+		<tr>
+			<td>Category</td>
+			<td><input type="text"></input></td>
+		</tr>
+	</table>
 	return (
 		<div>
 			<table className="customers">
@@ -44,14 +55,15 @@ const AddProduct = () => {
 
 			</table>
 
-			<Modal title="My Modal" onClose={() => setShow(false)} show={show}>
+			<Modal title="My Modal" onClose={() => setShow(false)} show={show} action={action}>
 				<label style={{ fontWeight: "bold" }}>Review Summary: </label>
 				<br />
 				<br />
-				{tableData}
+				{productData}
 				<br />
 				<br />
-				<div style={{ display: "inline-block", width: "100%" }}><label style={{ fontWeight: "bold" }}>Recipients: </label><input style={{ marginLeft: "15px", width: "75%" }} type="text"></input></div>
+				<div style={{ display: "inline-block", width: "100%" }}><label style={{ fontWeight: "bold" }}>
+					Add Product: </label><input style={{ marginLeft: "15px", width: "75%" }} type="text"></input></div>
 			</Modal>
 		</div>
 	);
