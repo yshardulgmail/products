@@ -54,15 +54,19 @@ const AddProduct = () => {
 			<td><input type="text"></input></td>
 		</tr>
 		<tr>
-			<td>Description</td>
-			<td><input type="text"></input></td>
-		</tr>
-		<tr>
 			<td>Category</td>
 			<td><input type="text"></input></td>
 		</tr>
 		<tr>
 			<td>SubCategory</td>
+			<td><input type="text"></input></td>
+		</tr>
+		<tr>
+			<td>Price</td>
+			<td><input type="text"></input></td>
+		</tr>
+		<tr>
+			<td>Image URL</td>
 			<td><input type="text"></input></td>
 		</tr>
 	</table>
@@ -81,7 +85,7 @@ const AddProduct = () => {
 
 			</table>
 
-			<Modal title="My Modal" onClose={() => setShow(false)} show={show} action={action}>
+			<Modal title="Products Data" onClose={() => setShow(false)} show={show} action={action}>
 				{productData}
 				<div style={{ display: "inline-block", width: "100%" }}></div>
 			</Modal>
