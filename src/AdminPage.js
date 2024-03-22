@@ -12,7 +12,7 @@ function AdminPage() {
       <>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<ShowProducts />}>
+            <Route path="/" element={<AdminLayout />}>
               <Route index element={<ShowProducts />} />
               <Route path="addProduct" element={<AddProduct />} />
               <Route path="updateProduct" element={<UpdateProduct />} />
