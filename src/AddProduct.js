@@ -72,6 +72,7 @@ const AddProduct = () => {
 	</table>
 	return (
 		<div>
+			<h2>Products</h2>
 			<table className="customers">
 				<tr>
 					<th>Name</th>
