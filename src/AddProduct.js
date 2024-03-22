@@ -6,18 +6,30 @@ import React, {useState} from "react";
 const products = [
 	{
 		name: "Product1",
+		category: "Man",
+		subcategory: "Shoes",
+		price: "4200",
 		url: "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
 	},
 	{
 		name: "Product2",
+		category: "Man",
+		subcategory: "Shoes",
+		price: "4200",
 		url: "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
 	},
 	{
 		name: "Product3",
+		category: "Man",
+		subcategory: "Shoes",
+		price: "4200",
 		url: "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
 	},
 	{
 		name: "Product4",
+		category: "Man",
+		subcategory: "Shoes",
+		price: "4200",
 		url: "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
 	}
 ];
@@ -29,6 +41,9 @@ const AddProduct = () => {
 	const tableData = products.map(item => {
 		return <tr>
 			<td>{item.name}</td>
+			<td>{item.category}</td>
+			<td>{item.subcategory}</td>
+			<td>{item.price}</td>
 			<td><img src={item.url} alt="Avatar" style={{ width: "25px", height: "25px" }} /></td>
 			<td><button onClick={() => {setShow(true); setAction("Add");}} >Add</button><button onClick={() => {setShow(true); setAction("Edit");}} >Edit</button></td>
 		</tr>
@@ -56,6 +71,9 @@ const AddProduct = () => {
 			<table className="customers">
 				<tr>
 					<th>Name</th>
+					<th>Category</th>
+					<th>SubCategory</th>
+					<th>Price</th>
 					<th>Image</th>
 					<th>Actions</th>
 				</tr>
