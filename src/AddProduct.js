@@ -30,7 +30,7 @@ const AddProduct = () => {
 		return <tr>
 			<td>{item.name}</td>
 			<td><img src={item.url} alt="Avatar" style={{ width: "25px", height: "25px" }} /></td>
-			<td><button onClick={() => {setShow(true); setAction("Add");}} >Add</button><button onClick={() => {setShow(true); setAction("Edit");}} >Add</button></td>
+			<td><button onClick={() => {setShow(true); setAction("Add");}} >Add</button><button onClick={() => {setShow(true); setAction("Edit");}} >Edit</button></td>
 		</tr>
 	});
 	const productData = <table>
@@ -39,7 +39,15 @@ const AddProduct = () => {
 			<td><input type="text"></input></td>
 		</tr>
 		<tr>
+			<td>Description</td>
+			<td><input type="text"></input></td>
+		</tr>
+		<tr>
 			<td>Category</td>
+			<td><input type="text"></input></td>
+		</tr>
+		<tr>
+			<td>SubCategory</td>
 			<td><input type="text"></input></td>
 		</tr>
 	</table>
@@ -56,14 +64,8 @@ const AddProduct = () => {
 			</table>
 
 			<Modal title="My Modal" onClose={() => setShow(false)} show={show} action={action}>
-				<label style={{ fontWeight: "bold" }}>Review Summary: </label>
-				<br />
-				<br />
 				{productData}
-				<br />
-				<br />
-				<div style={{ display: "inline-block", width: "100%" }}><label style={{ fontWeight: "bold" }}>
-					Add Product: </label><input style={{ marginLeft: "15px", width: "75%" }} type="text"></input></div>
+				<div style={{ display: "inline-block", width: "100%" }}></div>
 			</Modal>
 		</div>
 	);
