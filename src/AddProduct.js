@@ -1,10 +1,11 @@
 import Modal from "./Modal";
 import "./admin.css"
 import React, {useState} from "react";
+import { useParams, useLocation } from 'react-router-dom';
 
 
-const products = [
-	{
+const products = {
+	Man: [{
 		name: "Product1",
 		category: "Man",
 		subcategory: "Shoes",
@@ -31,21 +32,54 @@ const products = [
 		subcategory: "Shoes",
 		price: "4200",
 		url: "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
-	}
-];
+	}],
+	Woman: [{
+		name: "Product11",
+		category: "Man",
+		subcategory: "Shoes",
+		price: "4200",
+		url: "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
+	},
+	{
+		name: "Product22",
+		category: "Man",
+		subcategory: "Shoes",
+		price: "4200",
+		url: "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
+	},
+	{
+		name: "Product33",
+		category: "Man",
+		subcategory: "Shoes",
+		price: "4200",
+		url: "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
+	},
+	{
+		name: "Product44",
+		category: "Man",
+		subcategory: "Shoes",
+		price: "4200",
+		url: "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
+	}]
+};
 
 
-const AddProduct = () => {
+const AddProduct = (props) => {
 	const [show, setShow] = useState(false);
 	const [action, setAction] = useState("");
-	const tableData = products.map(item => {
+	const {state} = useLocation();
+	const { category } = state;
+	console.log(state)
+	const tableData = products[category].map(item => {
 		return <tr>
 			<td>{item.name}</td>
 			<td>{item.category}</td>
 			<td>{item.subcategory}</td>
 			<td>{item.price}</td>
 			<td><img src={item.url} alt="Avatar" style={{ width: "25px", height: "25px" }} /></td>
-			<td><button onClick={() => {setShow(true); setAction("Add");}} >Add</button><button onClick={() => {setShow(true); setAction("Edit");}} >Edit</button></td>
+			<td><button onClick={() => {setShow(true); setAction("Add");}} >Add</button>
+			<button onClick={() => {setShow(true); setAction("Edit");}} >Edit</button>
+			<button onClick={() => {setShow(true); setAction("Delete");}} >Delete</button></td>
 		</tr>
 	});
 	const productData = <table>
