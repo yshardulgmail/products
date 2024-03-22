@@ -25,10 +25,10 @@ function ShowProducts() {
       categories.map((item) => {
             return (
               <div className="card" onClick={() => history("/addProduct")}>
-                <img src="https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350" alt="Avatar" style={{width:"100%"}}/>
+                <img src={item.url} alt="Avatar" style={{width:"100%"}}/>
                 <div className="container">
-                  <h4><b>Sub Category 1</b></h4>
-                  <p>Jeans</p>
+                  <h4><b>{item.name}</b></h4>
+                  <p>{item.description}</p>
                 </div>
               </div>
           )})};
